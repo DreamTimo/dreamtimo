@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.timo.base.view.TitleBar
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/transparent" />
+
+    <View style="@style/line" />
+
+    <TextView
+        android:id="@+id/tv_project"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_bt_normal_orange_2dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textColor="@color/selector_text_normal_white" />
+
+    <TextView
+        android:id="@+id/tv_mayun_project"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/selector_bt_normal_orange_2dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="点击跳转码云项目"
+        android:textColor="@color/selector_text_normal_white" />
+
+
+    <TextView
+        android:id="@+id/tv_http"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/selector_bt_normal_orange_2dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="网络框架rxjava+retrofit"
+        android:textColor="@color/selector_text_normal_white" />
+
+    <TextView
+        android:id="@+id/tv_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/selector_bt_normal_orange_2dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="recyclerview的优化使用"
+        android:textColor="@color/selector_text_normal_white" />
+
+    <TextView
+        android:id="@+id/tv_project_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/selector_bt_normal_orange_2dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="项目梳理预览"
+        android:textColor="@color/selector_text_normal_white" />
+
+    <TextView
+        android:id="@+id/tv_choice_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/selector_bt_normal_orange_2dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="图片选择+编辑库"
+        android:textColor="@color/selector_text_normal_white" />
+
+
+    <TextView
+        android:id="@+id/tv_old_work"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/selector_bt_normal_orange_2dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="华慧视"
+        android:textColor="@color/selector_text_normal_white" />
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:scaleType="fitXY" />
+</LinearLayout>
