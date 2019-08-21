@@ -11,10 +11,12 @@ import kotlinx.android.synthetic.main.fragment_home.*
  * Created by lykj on 2017/9/12.
  */
 
-class DreamFragment : BaseFragment() {
+class Home1Fragment : BaseFragment() {
 
     override fun getContentResId(): Int = R.layout.fragment_home
 
-    override fun initEvent(view: View) = BaseTools.setTitleBar(title_dream, "梦想")
-
+    override fun initEvent(view: View) {
+        BaseTools.setTitleBar(title_dream, "资讯")
+    }
 }
+

@@ -11,4 +11,8 @@
         android:background="@color/white"/>
     <View
         style="@style/line"/>
+    <com.timo.base.base.base_webview.CommonWebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>

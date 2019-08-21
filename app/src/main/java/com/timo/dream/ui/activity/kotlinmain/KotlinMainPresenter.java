@@ -8,9 +8,9 @@ import com.timo.dream.mvp.BasePresenterImpl;
  */
 
 public class KotlinMainPresenter extends BasePresenterImpl<KotlinMainContract.View> implements KotlinMainContract.Presenter {
-    private String[] mTitles = {"首页", "梦想", "我的"};
-    private int[] mIconSelectIds = {R.mipmap.icon_home_checked, R.mipmap.icon_dream_checked, R.mipmap.icon_mine_checked};
-    private int[] mIconUnselectIds = {R.mipmap.icon_home_no_check, R.mipmap.icon_dream_no_check, R.mipmap.icon_mine_no_check};
+    private String[] mTitles = {"活动", "资讯","","管理", "我的"};
+    private int[] mIconSelectIds = {R.mipmap.icon_home_checked, R.mipmap.icon_dream_checked, R.mipmap.icon_mine_checked, R.mipmap.icon_mine_checked, R.mipmap.icon_mine_checked};
+    private int[] mIconUnselectIds = {R.mipmap.icon_home_no_check, R.mipmap.icon_dream_no_check, R.mipmap.icon_mine_no_check, R.mipmap.icon_mine_no_check, R.mipmap.icon_mine_no_check};
 
     @Override
     public String[] getTitles() {

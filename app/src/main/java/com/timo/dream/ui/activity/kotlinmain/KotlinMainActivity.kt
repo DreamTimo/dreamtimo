@@ -2,12 +2,9 @@ package com.timo.dream.ui.activity.kotlinmain
 
 import com.timo.base.BaseTools
 import com.timo.base.view.tablayout.listener.OnTabSelectListener
-import com.timo.dream.Constants
 import com.timo.dream.R
 import com.timo.dream.mvp.MVPBaseActivity
-import com.timo.dream.ui.fragment.DreamFragment
-import com.timo.dream.ui.fragment.HomeFragment
-import com.timo.dream.ui.fragment.MineFragment
+import com.timo.dream.ui.fragment.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -16,19 +13,25 @@ import kotlinx.android.synthetic.main.activity_main.*
  */
 
 class KotlinMainActivity : MVPBaseActivity<KotlinMainContract.View, KotlinMainPresenter>(), KotlinMainContract.View {
-    private var mHomeFragment: HomeFragment? = null
-    private var mDreamFragment: DreamFragment? = null
-    private var mMineFragment: MineFragment? = null
+    private var Fragment_0: Home0Fragment? = null
+    private var Fragment_1: Home1Fragment? = null
+    private var Fragment_2: Home2Fragment? = null
+    private var Fragment_3: Home3Fragment? = null
+    private var Fragment_4: Home4Fragment? = null
     override fun getContentResId(): Int = R.layout.activity_main
     override fun initEvent() {
         val transaction = supportFragmentManager.beginTransaction()
         val currentTabPosition = 0
-        mHomeFragment = HomeFragment()
-        mDreamFragment = DreamFragment()
-        mMineFragment = MineFragment()
-        transaction.add(R.id.fragment, mHomeFragment, Constants.homeFragment)
-        transaction.add(R.id.fragment, mDreamFragment, Constants.dreamFragment)
-        transaction.add(R.id.fragment, mMineFragment, Constants.mineFragment)
+        Fragment_0 = Home0Fragment()
+        Fragment_1 = Home1Fragment()
+        Fragment_2 = Home2Fragment()
+        Fragment_3 = Home3Fragment()
+        Fragment_4 = Home4Fragment()
+        transaction.add(R.id.fragment, Fragment_0, "0")
+        transaction.add(R.id.fragment, Fragment_1, "1")
+        transaction.add(R.id.fragment, Fragment_2, "2")
+        transaction.add(R.id.fragment, Fragment_3, "3")
+        transaction.add(R.id.fragment, Fragment_4, "4")
         transaction.commit()
         showFragment(currentTabPosition)
         BaseTools.setNavigation(tab_layout, mPresenter.titles, mPresenter.select, mPresenter.selected, object : OnTabSelectListener {
@@ -45,25 +48,44 @@ class KotlinMainActivity : MVPBaseActivity<KotlinMainContract.View, KotlinMainPr
         val transaction = supportFragmentManager.beginTransaction()
         when (position) {
             0 -> {
-                transaction.hide(mDreamFragment)
-                transaction.hide(mMineFragment)
-                transaction.show(mHomeFragment)
+                transaction.show(Fragment_0)
+                transaction.hide(Fragment_1)
+                transaction.hide(Fragment_2)
+                transaction.hide(Fragment_3)
+                transaction.hide(Fragment_4)
                 transaction.commitAllowingStateLoss()
-                BaseTools.loadWeb(test_webview, "file:///android_asset/snow.html")
             }
             1 -> {
-                transaction.hide(mMineFragment)
-                transaction.hide(mHomeFragment)
-                transaction.show(mDreamFragment)
+                transaction.hide(Fragment_0)
+                transaction.show(Fragment_1)
+                transaction.hide(Fragment_2)
+                transaction.hide(Fragment_3)
+                transaction.hide(Fragment_4)
                 transaction.commitAllowingStateLoss()
-                BaseTools.loadWeb(test_webview, "file:///android_asset/sakura.html")
             }
             2 -> {
-                transaction.hide(mHomeFragment)
-                transaction.hide(mDreamFragment)
-                transaction.show(mMineFragment)
+                transaction.hide(Fragment_0)
+                transaction.hide(Fragment_1)
+                transaction.show(Fragment_2)
+                transaction.hide(Fragment_3)
+                transaction.hide(Fragment_4)
                 transaction.commitAllowingStateLoss()
-                BaseTools.loadWeb(test_webview, "file:///android_asset/snow.html")
+            }
+            3 -> {
+                transaction.hide(Fragment_0)
+                transaction.hide(Fragment_1)
+                transaction.hide(Fragment_2)
+                transaction.show(Fragment_3)
+                transaction.hide(Fragment_4)
+                transaction.commitAllowingStateLoss()
+            }
+            4 -> {
+                transaction.hide(Fragment_0)
+                transaction.hide(Fragment_1)
+                transaction.hide(Fragment_2)
+                transaction.hide(Fragment_3)
+                transaction.show(Fragment_4)
+                transaction.commitAllowingStateLoss()
             }
             else -> {
             }
