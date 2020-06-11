@@ -8,9 +8,7 @@ public class BaseConstancts {
      * log信息
      */
     public static boolean log = true;
-    public static String TAG = "Qianlong";
-    public static String db_tag_delete = "db_tag_delete";
-    public static String db_webView = "db_webView";
+    public static String TAG = "timo";
 
     /**
      * 退出时设置：

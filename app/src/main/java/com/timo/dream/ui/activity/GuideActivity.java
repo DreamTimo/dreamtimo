@@ -17,6 +17,8 @@ import android.widget.TextView;
 
 import com.timo.base.base.base_activity.BaseActivity;
 import com.timo.base.base.base_manager.AppInfo;
+import com.timo.base.route.RouteConstant;
+import com.timo.base.route.RouteUtil;
 import com.timo.dream.R;
 import com.timo.dream.ui.activity.kotlinmain.KotlinMainActivity;
 
@@ -187,7 +189,6 @@ public class GuideActivity extends BaseActivity {
     }
 
     public void goToMain() {
-        startActivityAddFinish(KotlinMainActivity.class);
+        RouteUtil.start(RouteConstant.activity_main);
     }
-
 }

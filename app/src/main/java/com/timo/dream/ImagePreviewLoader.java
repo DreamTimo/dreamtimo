@@ -17,7 +17,6 @@ import com.previewlibrary.loader.MySimpleTarget;
 
 public class ImagePreviewLoader implements IZoomMediaLoader {
 
-
     @Override
     public void displayImage(@NonNull Fragment context, @NonNull String path, ImageView imageView, @NonNull final MySimpleTarget simpleTarget) {
         simpleTarget.onResourceReady();
@@ -156,6 +155,46 @@ public class ImagePreviewLoader implements IZoomMediaLoader {
         }else if (path.equals("34")){
             Glide.with(context)
                     .load(R.drawable.d4)
+                    .into(imageView);
+        }else if (path.equals("40")){
+            Glide.with(context)
+                    .load(R.drawable.e1)
+                    .into(imageView);
+        }else if (path.equals("41")){
+            Glide.with(context)
+                    .load(R.drawable.e2)
+                    .into(imageView);
+        }else if (path.equals("42")){
+            Glide.with(context)
+                    .load(R.drawable.e3)
+                    .into(imageView);
+        }else if (path.equals("43")){
+            Glide.with(context)
+                    .load(R.drawable.e4)
+                    .into(imageView);
+        }else if (path.equals("44")){
+            Glide.with(context)
+                    .load(R.drawable.e5)
+                    .into(imageView);
+        }else if (path.equals("45")){
+            Glide.with(context)
+                    .load(R.drawable.e6)
+                    .into(imageView);
+        }else if (path.equals("46")){
+            Glide.with(context)
+                    .load(R.drawable.e7)
+                    .into(imageView);
+        }else if (path.equals("47")){
+            Glide.with(context)
+                    .load(R.drawable.e8)
+                    .into(imageView);
+        }else if (path.equals("48")){
+            Glide.with(context)
+                    .load(R.drawable.e9)
+                    .into(imageView);
+        }else if (path.equals("49")){
+            Glide.with(context)
+                    .load(R.drawable.e10)
                     .into(imageView);
         }else {
             Glide.with(context)
@@ -303,6 +342,46 @@ public class ImagePreviewLoader implements IZoomMediaLoader {
         }else if (path.equals("34")){
             Glide.with(context)
                     .load(R.drawable.d4)
+                    .into(imageView);
+        }else if (path.equals("40")){
+            Glide.with(context)
+                    .load(R.drawable.e1)
+                    .into(imageView);
+        }else if (path.equals("41")){
+            Glide.with(context)
+                    .load(R.drawable.e2)
+                    .into(imageView);
+        }else if (path.equals("42")){
+            Glide.with(context)
+                    .load(R.drawable.e3)
+                    .into(imageView);
+        }else if (path.equals("43")){
+            Glide.with(context)
+                    .load(R.drawable.e4)
+                    .into(imageView);
+        }else if (path.equals("44")){
+            Glide.with(context)
+                    .load(R.drawable.e5)
+                    .into(imageView);
+        }else if (path.equals("45")){
+            Glide.with(context)
+                    .load(R.drawable.e6)
+                    .into(imageView);
+        }else if (path.equals("46")){
+            Glide.with(context)
+                    .load(R.drawable.e7)
+                    .into(imageView);
+        }else if (path.equals("47")){
+            Glide.with(context)
+                    .load(R.drawable.e8)
+                    .into(imageView);
+        }else if (path.equals("48")){
+            Glide.with(context)
+                    .load(R.drawable.e9)
+                    .into(imageView);
+        }else if (path.equals("49")){
+            Glide.with(context)
+                    .load(R.drawable.e10)
                     .into(imageView);
         }else {
             Glide.with(context)

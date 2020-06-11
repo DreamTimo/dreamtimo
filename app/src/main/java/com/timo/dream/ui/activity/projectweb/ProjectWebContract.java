@@ -6,15 +6,15 @@ import com.timo.dream.mvp.BaseView;
 
 /**
  * MVPPlugin
- *  邮箱 784787081@qq.com
+ * 邮箱 784787081@qq.com
  */
 
 public class ProjectWebContract {
-    interface View extends BaseView {
-        
+    public interface View extends BaseView {
+
     }
 
-    interface  Presenter extends BasePresenter<View> {
-        
+    interface Presenter extends BasePresenter<View> {
+
     }
 }

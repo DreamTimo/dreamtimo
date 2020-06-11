@@ -1,57 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/drawlayout"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/transparent"
+    android:background="@color/white"
     android:orientation="vertical">
-    <LinearLayout
+    <com.timo.base.view.TitleBar
+        android:id="@+id/view_title_dream"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <com.timo.base.view.TitleBar
-            android:id="@+id/title_home"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@color/white"/>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-        >
-            <TextView
-                android:id="@+id/introduction"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="测试"
-                android:textColor="@color/default_text_color"
-                android:visibility="gone"/>
-        </RelativeLayout>
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-    </LinearLayout>
-    <LinearLayout
+        android:layout_height="48dp"
+        android:background="@color/white"/>
+    <com.timo.base.view.CommonWebView
+        android:id="@+id/view_webview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="@color/white"
-        android:orientation="vertical">
-        <com.timo.base.view.TitleBar
-            android:id="@+id/web_title"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@color/white"/>
-        <com.timo.base.base.base_webview.CommonWebView
-            android:id="@+id/web_mine"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="100"
-            android:textColor="@color/white"/>
-    </LinearLayout>
-
-</android.support.v4.widget.DrawerLayout>
+        android:layout_height="match_parent" />
+</LinearLayout>

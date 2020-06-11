@@ -1,5 +1,6 @@
 package com.timo.base;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -26,8 +27,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.gson.Gson;
-import com.timo.base.base.base_dialog.DialogListener;
-import com.timo.base.base.base_webview.CommonWebView;
+import com.timo.base.view.dialog.DialogListener;
+import com.timo.base.view.CommonWebView;
 import com.timo.base.tools.logger.Logger;
 import com.timo.base.tools.utils.DialogUtils;
 import com.timo.base.tools.utils.ScreenUtils;
@@ -162,13 +163,15 @@ public class BaseTools {
         webView.setIsShowLoading(false);
         webView.load(url);
     }
+
+    @SuppressLint("MissingPermission")
     public static String getPhoneInfo(Context context) {
-        TelephonyManager mTm = (TelephonyManager) context.getSystemService(context.TELEPHONY_SERVICE);
-        String imei = mTm.getDeviceId();
-        String imsi = mTm.getSubscriberId();
-        String mtype = android.os.Build.MODEL; // 手机型号
-        String mtyb = android.os.Build.BRAND;//手机品牌
-        String numer = mTm.getLine1Number(); // 手机号码，有的可得，有的不可得
+        TelephonyManager                          mTm   = (TelephonyManager) context.getSystemService(context.TELEPHONY_SERVICE);
+         String imei  = mTm.getDeviceId();
+        String                                    imsi  = mTm.getSubscriberId();
+        String                                    mtype = android.os.Build.MODEL; // 手机型号
+        String                                    mtyb  = android.os.Build.BRAND;//手机品牌
+        String                                    numer = mTm.getLine1Number(); // 手机号码，有的可得，有的不可得
         return "手机IMEI号：" + imei + "手机IESI号：" + imsi + "手机型号：" + mtype + "手机品牌：" + mtyb + "手机号码" + numer;
     }
 

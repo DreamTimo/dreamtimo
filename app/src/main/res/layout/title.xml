@@ -6,7 +6,7 @@
     android:orientation="vertical"
 >
     <com.timo.base.view.TitleBar
-        android:id="@+id/title"
+        android:id="@+id/view_title"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/white"/>

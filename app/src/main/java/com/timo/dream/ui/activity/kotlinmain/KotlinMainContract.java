@@ -1,6 +1,8 @@
 package com.timo.dream.ui.activity.kotlinmain;
 
 
+import android.content.Context;
+
 import com.timo.dream.mvp.BasePresenter;
 import com.timo.dream.mvp.BaseView;
 
@@ -20,5 +22,7 @@ public class KotlinMainContract {
         int[] getSelect();
 
         int[] getSelected();
+
+        void getData(Context context);
     }
 }

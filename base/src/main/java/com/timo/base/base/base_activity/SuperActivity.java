@@ -9,14 +9,11 @@ import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
 import android.view.View;
 
-import com.timo.base.BaseApplication;
 import com.timo.base.BaseConstancts;
 import com.timo.base.BaseTools;
 import com.timo.base.tools.permissions.PermissionUtils;
 import com.timo.base.tools.permissions.permission_interface.PermissionGrantedListener;
 import com.timo.base.tools.StatusBarCompat;
-
-import java.io.Serializable;
 
 /**
  * activity基础类：一般不做变动
@@ -50,28 +47,7 @@ public abstract class SuperActivity extends FragmentActivity implements Permissi
 
     protected abstract void initEvent();
 
-    protected void initEvent(Bundle savedInstanceState) {
-    }
-
-    public void startActivityNoFinish(Class<?> cls) {
-        startActivity(new Intent(BaseApplication.getInstance().getContext(), cls));
-    }
-
-    public void startActivityNoFinish(Class<?> cls, Serializable params) {
-        startActivity(new Intent(BaseApplication.getInstance().getContext(), cls).putExtra(BaseConstancts.Params, params));
-    }
-
-    public void startActivityAddFinish(Class<?> cls) {
-        startActivity(new Intent(BaseApplication.getInstance().getContext(), cls));
-        finish();
-    }
-
-    public void startActivityAddFinish(Class<?> cls, Serializable params) {
-        startActivity(new Intent(BaseApplication.getInstance().getContext(), cls).putExtra(BaseConstancts.Params, params));
-        finish();
-    }
-
-
+    protected void initEvent(Bundle savedInstanceState) { }
     /**
      * 返回键监听，主页退出监听
      *

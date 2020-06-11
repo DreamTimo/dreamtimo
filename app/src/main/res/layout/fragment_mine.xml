@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/transparent"
     android:orientation="vertical">
 
     <com.timo.base.view.TitleBar
-        android:id="@+id/title"
+        android:id="@+id/view_title_mine"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@color/transparent" />
-
-    <View style="@style/line" />
+        android:background="@color/white"/>
 
     <TextView
+        android:layout_marginTop="20dp"
         android:id="@+id/tv_project"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,8 +30,9 @@
         android:background="@drawable/selector_bt_normal_orange_2dp"
         android:gravity="center"
         android:padding="10dp"
-        android:text="点击跳转码云项目"
-        android:textColor="@color/selector_text_normal_white" />
+        android:text="点击跳转码云项目(26个仓库)"
+        android:textColor="@color/selector_text_normal_white"
+        tools:ignore="HardcodedText" />
 
 
     <TextView
@@ -43,7 +44,8 @@
         android:gravity="center"
         android:padding="10dp"
         android:text="网络框架rxjava+retrofit"
-        android:textColor="@color/selector_text_normal_white" />
+        android:textColor="@color/selector_text_normal_white"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/tv_recyclerview"
@@ -54,7 +56,8 @@
         android:gravity="center"
         android:padding="10dp"
         android:text="recyclerview的优化使用"
-        android:textColor="@color/selector_text_normal_white" />
+        android:textColor="@color/selector_text_normal_white"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/tv_project_description"
@@ -65,7 +68,8 @@
         android:gravity="center"
         android:padding="10dp"
         android:text="项目梳理预览"
-        android:textColor="@color/selector_text_normal_white" />
+        android:textColor="@color/selector_text_normal_white"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/tv_choice_image"
@@ -76,25 +80,48 @@
         android:gravity="center"
         android:padding="10dp"
         android:text="图片选择+编辑库"
-        android:textColor="@color/selector_text_normal_white" />
+        android:textColor="@color/selector_text_normal_white"
+        tools:ignore="HardcodedText" />
 
 
     <TextView
-        android:id="@+id/tv_old_work"
+        android:id="@+id/tv_work_huahuishi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="@drawable/selector_bt_normal_orange_2dp"
         android:gravity="center"
         android:padding="10dp"
-        android:text="华慧视"
-        android:textColor="@color/selector_text_normal_white" />
-
+        android:text="2018-2019 华慧视"
+        android:textColor="@color/selector_text_normal_white"
+        tools:ignore="HardcodedText" />
+    <TextView
+        android:id="@+id/tv_work_jinlian"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/selector_bt_normal_orange_2dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="2019-2020 金联汇通"
+        android:textColor="@color/selector_text_normal_white"
+        tools:ignore="HardcodedText" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/transparent"
+        android:gravity="center"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:text="目前项目中一般使用MVPP插件快速构建MVP模板，使用Kotlin代码快速搭建主界面，使用Arouter实现功能组件化。有自己维护的基类库，熟练掌握自定义控件，事件分发"
+        android:textColor="@color/white"
+        tools:ignore="HardcodedText" />
     <ImageView
         android:id="@+id/iv_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:padding="10dp"
-        android:scaleType="fitXY" />
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:scaleType="center" />
 </LinearLayout>

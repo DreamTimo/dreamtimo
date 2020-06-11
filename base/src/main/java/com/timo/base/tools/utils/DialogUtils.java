@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.timo.base.R;
-import com.timo.base.base.base_dialog.DialogListener;
+import com.timo.base.view.dialog.DialogListener;
 
 
 public class DialogUtils {

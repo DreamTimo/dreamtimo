@@ -2,9 +2,11 @@ package com.timo.dream.ui.fragment
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.text.Html
 import android.view.View
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.luck.picture.lib.PictureSelector
 import com.luck.picture.lib.config.PictureConfig
 import com.luck.picture.lib.config.PictureMimeType
@@ -12,9 +14,10 @@ import com.previewlibrary.GPreviewBuilder
 import com.previewlibrary.view.BasePhotoFragment
 import com.timo.base.BaseTools
 import com.timo.base.base.base_fragment.BaseFragment
+import com.timo.base.route.RouteConstant
+import com.timo.base.route.RouteUtil
 import com.timo.dream.R
 import com.timo.dream.bean.ImagePreviewBean
-import com.timo.dream.ui.activity.projectweb.ProjectWebActivity
 import kotlinx.android.synthetic.main.fragment_mine.*
 import me.kareluo.imaging.IMGEditActivity
 import java.io.File
@@ -23,55 +26,71 @@ import java.util.*
 /**
  * Created by lykj on 2017/9/12.
  */
-
+@Route(path = RouteConstant.fragment_mine)
 class MineFragment : BaseFragment(), View.OnClickListener {
-    private var imageData: ArrayList<ImagePreviewBean>? = null
+
+    override fun getContentResId(): Int = R.layout.fragment_mine
+
+    private var image_huahuishi: ArrayList<ImagePreviewBean>? = null
+    private var image_jinlian: ArrayList<ImagePreviewBean>? = null
     private var httpData: ArrayList<ImagePreviewBean>? = null
     private var projectData: ArrayList<ImagePreviewBean>? = null
     private var recyclerData: ArrayList<ImagePreviewBean>? = null
+    private var mPicFile: File? = null
+    private var mRequestCode: Int? = 1002
 
+    override fun initEvent(view: View) {
+        BaseTools.setTitleBar(view_title_mine, "心得经验")
+
+        view_title_mine.setTitleColor(Color.WHITE);
+        val html = "<font color='#ff0000'>点击-></font><font color='#0000FF'>fir应用(N多应用)<font>"
+        val charSequence = Html.fromHtml(html)
+        tv_project.text = charSequence
+
+        tv_project.setOnClickListener(this)
+        tv_mayun_project.setOnClickListener(this)
+        tv_http.setOnClickListener(this)
+        tv_project_description.setOnClickListener(this)
+        tv_choice_image.setOnClickListener(this)
+        tv_work_huahuishi.setOnClickListener(this)
+        tv_recyclerview.setOnClickListener(this)
+        tv_work_jinlian.setOnClickListener(this)
+    }
     override fun onClick(v: View?) {
         when (v!!.id) {
             R.id.tv_mayun_project -> {
-                startActivityNoFinish(ProjectWebActivity::class.java, "码云项目")
+                RouteUtil.to_project_mayun()
             }
             R.id.tv_project -> {
-                startActivityNoFinish(ProjectWebActivity::class.java)
+                RouteUtil.to_project_github()
             }
-            R.id.tv_old_work -> {
-                if (imageData == null) {
-                    imageData = ArrayList<ImagePreviewBean>()
-                    imageData!!.add(ImagePreviewBean("12"))
-                    imageData!!.add(ImagePreviewBean("13"))
-                    imageData!!.add(ImagePreviewBean("11"))
-                    imageData!!.add(ImagePreviewBean("9"))
-                    imageData!!.add(ImagePreviewBean("7"))
-                    imageData!!.add(ImagePreviewBean("5"))
-                    imageData!!.add(ImagePreviewBean("4"))
-                    imageData!!.add(ImagePreviewBean("3"))
-                    imageData!!.add(ImagePreviewBean("10"))
-                    imageData!!.add(ImagePreviewBean("16"))
-                    imageData!!.add(ImagePreviewBean("17"))
-                    imageData!!.add(ImagePreviewBean("18"))
-                    imageData!!.add(ImagePreviewBean("6"))
-                    imageData!!.add(ImagePreviewBean("8"))
-                    imageData!!.add(ImagePreviewBean("14"))
-                    imageData!!.add(ImagePreviewBean("15"))
-                    imageData!!.add(ImagePreviewBean("2"))
-                    imageData!!.add(ImagePreviewBean("1"))
-
+            R.id.tv_work_huahuishi -> {
+                if (image_huahuishi == null) {
+                    image_huahuishi = ArrayList()
+                    image_huahuishi!!.add(ImagePreviewBean("12"))
+                    image_huahuishi!!.add(ImagePreviewBean("13"))
+                    image_huahuishi!!.add(ImagePreviewBean("11"))
+                    image_huahuishi!!.add(ImagePreviewBean("9"))
+                    image_huahuishi!!.add(ImagePreviewBean("7"))
+                    image_huahuishi!!.add(ImagePreviewBean("5"))
+                    image_huahuishi!!.add(ImagePreviewBean("4"))
+                    image_huahuishi!!.add(ImagePreviewBean("3"))
+                    image_huahuishi!!.add(ImagePreviewBean("10"))
+                    image_huahuishi!!.add(ImagePreviewBean("16"))
+                    image_huahuishi!!.add(ImagePreviewBean("17"))
+                    image_huahuishi!!.add(ImagePreviewBean("18"))
+                    image_huahuishi!!.add(ImagePreviewBean("6"))
+                    image_huahuishi!!.add(ImagePreviewBean("8"))
+                    image_huahuishi!!.add(ImagePreviewBean("14"))
+                    image_huahuishi!!.add(ImagePreviewBean("15"))
+                    image_huahuishi!!.add(ImagePreviewBean("2"))
+                    image_huahuishi!!.add(ImagePreviewBean("1"))
                 }
-                GPreviewBuilder.from(this)
-                        .setData(imageData!!)
-                        .setUserFragment(BasePhotoFragment::class.java)
-                        .setCurrentIndex(0)
-                        .setSingleFling(true)
-                        .setType(GPreviewBuilder.IndicatorType.Number)
-                        .start()
+                showPics(image_huahuishi!!)
             }
             R.id.tv_project_description -> {
                 if (projectData == null) {
-                    projectData = ArrayList<ImagePreviewBean>()
+                    projectData = ArrayList()
                     projectData!!.add(ImagePreviewBean("24"))
                     projectData!!.add(ImagePreviewBean("25"))
                     projectData!!.add(ImagePreviewBean("26"))
@@ -80,17 +99,11 @@ class MineFragment : BaseFragment(), View.OnClickListener {
                     projectData!!.add(ImagePreviewBean("29"))
                     projectData!!.add(ImagePreviewBean("30"))
                 }
-                GPreviewBuilder.from(this)
-                        .setData(projectData!!)
-                        .setUserFragment(BasePhotoFragment::class.java)
-                        .setCurrentIndex(0)
-                        .setSingleFling(true)
-                        .setType(GPreviewBuilder.IndicatorType.Number)
-                        .start()
+                showPics(projectData!!)
             }
             R.id.tv_recyclerview -> {
                 if (recyclerData == null) {
-                    recyclerData = ArrayList<ImagePreviewBean>()
+                    recyclerData = ArrayList()
                     recyclerData!!.add(ImagePreviewBean("31"))
                     recyclerData!!.add(ImagePreviewBean("32"))
                     recyclerData!!.add(ImagePreviewBean("33"))
@@ -122,7 +135,7 @@ class MineFragment : BaseFragment(), View.OnClickListener {
             }
             R.id.tv_http -> {
                 if (httpData == null) {
-                    httpData = ArrayList<ImagePreviewBean>()
+                    httpData = ArrayList()
                     httpData!!.add(ImagePreviewBean("19"))
                     httpData!!.add(ImagePreviewBean("20"))
                     httpData!!.add(ImagePreviewBean("21"))
@@ -137,27 +150,35 @@ class MineFragment : BaseFragment(), View.OnClickListener {
                         .setType(GPreviewBuilder.IndicatorType.Number)
                         .start()
             }
+            R.id.tv_work_jinlian->{
+                if (image_jinlian == null) {
+                    image_jinlian = ArrayList()
+                    image_jinlian!!.add(ImagePreviewBean("41"))
+                    image_jinlian!!.add(ImagePreviewBean("42"))
+                    image_jinlian!!.add(ImagePreviewBean("43"))
+                    image_jinlian!!.add(ImagePreviewBean("44"))
+                    image_jinlian!!.add(ImagePreviewBean("46"))
+                    image_jinlian!!.add(ImagePreviewBean("47"))
+                    image_jinlian!!.add(ImagePreviewBean("45"))
+                    image_jinlian!!.add(ImagePreviewBean("48"))
+                    image_jinlian!!.add(ImagePreviewBean("49"))
+                    image_jinlian!!.add(ImagePreviewBean("40"))
+                }
+                showPics(image_jinlian!!)
+            }
         }
     }
 
-    override fun getContentResId(): Int = R.layout.fragment_mine
-
-    override fun initEvent(view: View) {
-        BaseTools.setTitleBar(title, "我的")
-        val html = "<font color='#ff0000'>点击-></font><font color='#0000FF'>项目<font>"
-        val charSequence = Html.fromHtml(html)
-        tv_project.text = charSequence
-        tv_project.setOnClickListener(this)
-        tv_mayun_project.setOnClickListener(this)
-        tv_http.setOnClickListener(this)
-        tv_project_description.setOnClickListener(this)
-        tv_choice_image.setOnClickListener(this)
-        tv_old_work.setOnClickListener(this)
-        tv_recyclerview.setOnClickListener(this)
+    private fun showPics(data: ArrayList<ImagePreviewBean>) {
+        GPreviewBuilder.from(this)
+                .setData(data)
+                .setUserFragment(BasePhotoFragment::class.java)
+                .setCurrentIndex(0)
+                .setSingleFling(true)
+                .setType(GPreviewBuilder.IndicatorType.Number)
+                .start()
     }
 
-    var mPicFile: File? = null
-    var mRequestCode: Int? = 1002
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -165,7 +186,7 @@ class MineFragment : BaseFragment(), View.OnClickListener {
             PictureConfig.CHOOSE_REQUEST -> {
                 if (resultCode == Activity.RESULT_OK) {
                     var path = PictureSelector.obtainMultipleResult(data)[0].path
-                    mPicFile = File(activity.cacheDir, UUID.randomUUID().toString() + ".jpg")
+                    mPicFile = File(activity!!.cacheDir, UUID.randomUUID().toString() + ".jpg")
                     startActivityForResult(Intent(activity, IMGEditActivity::class.java)
                             .putExtra(IMGEditActivity.EXTRA_IMAGE_URI, Uri.fromFile(File(path)))
                             .putExtra(IMGEditActivity.EXTRA_IMAGE_SAVE_PATH, mPicFile?.absolutePath), mRequestCode!!)
@@ -173,7 +194,7 @@ class MineFragment : BaseFragment(), View.OnClickListener {
             }
             mRequestCode -> {
                 if (resultCode == Activity.RESULT_OK) {
-                    BaseTools.load(context, File(mPicFile!!.absolutePath), iv_image)
+                    BaseTools.load(activity, File(mPicFile!!.absolutePath), iv_image)
                 }
             }
         }
