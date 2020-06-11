@@ -5,17 +5,20 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="100">
-
         <com.timo.base.view.CommonWebView
             android:id="@+id/view_webview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
+        <com.timo.base.base.base_webview.CommonWebView
+            android:id="@+id/test_webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+        />
         <FrameLayout
             android:id="@+id/fragment"
             android:layout_width="match_parent"
@@ -24,7 +27,20 @@
     </RelativeLayout>
 
     <View style="@style/line" />
-
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_centerInParent="true"
+            android:background="@color/color_green"
+            android:visibility="gone">
+            <ImageView
+                android:id="@+id/img_logo"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_launcher"/>
+        </FrameLayout>
+    <View style="@style/line"/>
     <com.timo.base.view.tablayout.CommonTabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"

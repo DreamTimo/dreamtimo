@@ -163,7 +163,6 @@ public class BaseTools {
         webView.setIsShowLoading(false);
         webView.load(url);
     }
-
     @SuppressLint("MissingPermission")
     public static String getPhoneInfo(Context context) {
         TelephonyManager                          mTm   = (TelephonyManager) context.getSystemService(context.TELEPHONY_SERVICE);

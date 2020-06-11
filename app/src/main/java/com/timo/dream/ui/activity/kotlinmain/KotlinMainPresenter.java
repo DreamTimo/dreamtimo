@@ -47,6 +47,4 @@ public class KotlinMainPresenter extends BasePresenterImpl<KotlinMainContract.Vi
             }
         });
     }
-
-
 }

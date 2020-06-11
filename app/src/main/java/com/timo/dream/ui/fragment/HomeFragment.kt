@@ -25,4 +25,3 @@ class HomeFragment : BaseFragment() {
         view_webview.load("file:///android_asset/my.html")
     }
 }
-

@@ -23,7 +23,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".ui.activity.projectweb.ProjectWebActivity"
@@ -31,7 +30,8 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"
-            tools:ignore="LockedOrientationActivity" />
+            tools:ignore="LockedOrientationActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -20,7 +20,6 @@ import com.timo.base.base.base_manager.AppInfo;
 import com.timo.base.route.RouteConstant;
 import com.timo.base.route.RouteUtil;
 import com.timo.dream.R;
-import com.timo.dream.ui.activity.kotlinmain.KotlinMainActivity;
 
 import java.util.ArrayList;
 

@@ -41,8 +41,6 @@ class MineFragment : BaseFragment(), View.OnClickListener {
 
     override fun initEvent(view: View) {
         BaseTools.setTitleBar(view_title_mine, "心得经验")
-
-        view_title_mine.setTitleColor(Color.WHITE);
         val html = "<font color='#ff0000'>点击-></font><font color='#0000FF'>fir应用(N多应用)<font>"
         val charSequence = Html.fromHtml(html)
         tv_project.text = charSequence
