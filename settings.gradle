@@ -1,1 +1,6 @@
-include ':app', ':image_edit_lib', ':titlebar_lib', ':marqueelib', ':image_preview_lib', ':base', ':httplib', ':bannerlib'
+include ':app', ':image_edit_lib', ':titlebar_lib', ':marqueelib', ':image_preview_lib', ':httplib', ':bannerlib'
+include ':module_base'
+include ':module_view'
+include ':ModuleHome'
+include ':ModuleDream'
+include ':ModuleMine'

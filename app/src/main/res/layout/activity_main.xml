@@ -13,12 +13,6 @@
             android:id="@+id/view_webview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-
-        <com.timo.base.base.base_webview.CommonWebView
-            android:id="@+id/test_webview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-        />
         <FrameLayout
             android:id="@+id/fragment"
             android:layout_width="match_parent"

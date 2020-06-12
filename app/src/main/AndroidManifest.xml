@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.timo.dream">
+    package="com.timo.demo">
 
     <application
         android:name=".MyApp"
@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_config"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="UnusedAttribute">
         <activity
             android:name=".ui.activity.kotlinmain.KotlinMainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -23,14 +24,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".ui.activity.projectweb.ProjectWebActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateHidden|adjustPan"
-            tools:ignore="LockedOrientationActivity">
         </activity>
     </application>
 
